@@ -69,7 +69,7 @@ const Login = () => {
     return(
       <div className="fom" style={{justifyContent:"center", display:"flex",flexWrap:"unset",marginTop:"175px"}} >
        <form className="bg-white rounded-2xl shadow-2xl flex flex-col md:w-1/3 items-center max-w-2xl transition duration-1000 ease-out" style={{width:"300px"}} onSubmit={(event)=>handleSubmit(event)}>
-             <h2 className='p-3 text-3xl font-bold text-pink-400'>EXT</h2>
+             <h2 className='p-3 text-3xl font-bold text-pink-400'>Expense Tracker</h2>
              <div className="inline-block border-[1px] justify-center w-20 border-blue-400 border-solid"></div>
              <h3 className='text-xl font-semibold text-blue-400 pt-2'>Sign In!</h3>
              {/* Inputs */}
@@ -166,7 +166,7 @@ const Login = () => {
      return(
       <div className="fom" style={{justifyContent:"center", display:"flex",flexWrap:"unset", marginTop:"145px"}}>
         <form className="bg-blue-400 text-white rounded-2xl shadow-2xl  flex flex-col w-full  md:w-1/3 items-center max-w-4xl transition duration-1000 ease-in" style={{width:"350px"}} onSubmit={(event)=>handleSubmit(event)}>
-              <h2 className='p-3 text-3xl font-bold text-white'>EXT</h2>
+              <h2 className='p-3 text-3xl font-bold text-white'>Expense Tracker</h2>
              <div className="inline-block border-[1px] justify-center w-20 border-white border-solid"></div>
              <h3 className='text-xl font-semibold text-white pt-2'>Create Account!</h3>
              {/* Inputs */}
