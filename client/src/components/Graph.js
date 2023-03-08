@@ -5,6 +5,7 @@ import {Doughnut} from 'react-chartjs-2'
 import Labels from './Labels'
 import { chart_data, getTotal } from '../helper/helper';
 import { useNavigate } from 'react-router-dom';
+import loader from '../Assets/loader.gif';
 
 Chart.register(ArcElement);
 
@@ -30,7 +31,7 @@ export default function Graph() {
     let graphData;
     
     if(isFetching){
-        graphData = <div>Fetching</div>;
+        graphData = " ";
     }else if(isSuccess){
         graphData = <Doughnut {...chart_data(data.filter(item => item.username === user ))}/>
     }else if(isError){

@@ -15,7 +15,10 @@ routes.route('/api/labels')
 
 routes.route('/api/users')
     .post(controller.create_user)
-    .get(controller.get_user)
+    
+
+routes.route('/api/user')
+    .post(controller.get_user)
 
 
 module.exports = routes;

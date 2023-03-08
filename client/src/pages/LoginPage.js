@@ -1,16 +1,16 @@
-import React,{useState} from 'react'
+import React,{useState, useEffect} from 'react'
 import { useNavigate } from "react-router-dom";
-import { toast } from 'react-toastify';
+import toast from 'react-hot-toast';
 import {default as api} from '../store/apiSlice';
-
+import axios from "axios";
 const Login = () => {
   const[isLogin,setIsLogin] = useState(true)
-
+  const navigate = useNavigate();
   const LoginForm = () => {
     const navigate = useNavigate();
     const toastOptions = {
-        position:'bottom-right',
-        autoClose:2000,
+        position:'top-right',
+        autoClose:1000,
         pauseOnHover:true,
         draggable: true,
         theme: 'dark',
@@ -21,23 +21,27 @@ const Login = () => {
         password:"",
     });
 
-    // // useEffect(()=>{
-    // //     if(localStorage.getItem("chat-app-user")){
-    // //        setIsLogin(false)
-    // //     }
-    // // },[])
+     useEffect(()=>{
+         if(localStorage.getItem("appUser")){
+           navigate("/main");
+        }
+    },[])
 
-    const [addUser] = api.useAddUserMutation();
+    const [getUser] = api.useGetUserMutation();
 
     const handleSubmit= async(event)=>{
         event.preventDefault();
         if(handleValidation()){
             const{password,username}=values;
-            const {data} = await addUser(values);
-            if(data.status === false){
-                toast.error(data.msg, toastOptions);
+            console.log(values);
+            const {data} = await axios.post('http://localhost:8080/api/user',{ 
+              username,
+              password,
+            });
+            if(data.status != true){
+                toast.error("Incorrect Password or Username", toastOptions);
             }
-            if(data.status===true){
+            if(data.status){
                 localStorage.setItem('appUser',JSON.stringify(data.user)); 
                 navigate("/main");
             }
@@ -89,7 +93,7 @@ const Login = () => {
   
   const  SignUpForm = () => {
 
-    const navigate1 = useNavigate();
+    const navigate = useNavigate();
     const toastOptions = {
       position:'bottom-right',
       autoClose:2000,
@@ -105,11 +109,11 @@ const Login = () => {
         confirmpassword:"",
       });
   
-  // useEffect(()=>{
-  //     if(localStorage.getItem("chat-app-user")){
-  //         navigate('/login');
-  //     }
-  // },[])
+  useEffect(()=>{
+      if(localStorage.getItem("appUser")){
+          navigate('/main');
+      }
+  },[])
   
   const [addUser] = api.useAddUserMutation();
   
@@ -125,7 +129,7 @@ const Login = () => {
         if(data){
             console.log("Hi")
             localStorage.setItem('appUser',JSON.stringify(data)); 
-            navigate1("/main");
+            navigate("/main");
         }
     }   
   };
