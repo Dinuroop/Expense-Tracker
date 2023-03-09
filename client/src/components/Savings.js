@@ -50,16 +50,12 @@ export default function Savings() {
 
     const{data, isFetching, isSuccess, isError} = api.useGetLabelsQuery()
     if(!data) return null
-    console.log(saving_data(data))
-
     let savingData;
     
     if(isFetching){
         savingData = <div class="dark:text-white">Fetching</div>;
     }else if(isSuccess && saving_data(data)){
-        console.log("Success")
         savingData = <Bar data={saving_data(data)}/>
-        console.log(savingData)
     }else if(isError){
         savingData = <div class="dark:text-white">Error</div>
     }

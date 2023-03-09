@@ -33,7 +33,6 @@ const Login = () => {
         event.preventDefault();
         if(handleValidation()){
             const{password,username}=values;
-            console.log(values);
             const {data} = await axios.post('http://localhost:8080/api/user',{ 
               username,
               password,
@@ -122,12 +121,10 @@ const Login = () => {
     if(handleValidation()){
         const{password,username,email}=values;
         const {data} = await addUser(values);
-        console.log(data)
         if(!data){
             toast.error("Couldn't connect the database", toastOptions);
         }
         if(data){
-            console.log("Hi")
             localStorage.setItem('appUser',JSON.stringify(data)); 
             navigate("/main");
         }
@@ -160,7 +157,6 @@ const Login = () => {
   
   const handleChange=(event)=>{
     setValues({...values,[event.target.name]: event.target.value});
-    console.log({...values,[event.target.name]: event.target.value})
 }; 
 
      return(

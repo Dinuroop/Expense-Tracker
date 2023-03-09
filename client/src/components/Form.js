@@ -15,7 +15,6 @@ export default function Form() {
         if(!data) {console.log("no data")};
         if(localStorage.getItem('appUser')){
             const user = JSON.parse(localStorage.getItem('appUser')).username;
-            console.log(user)
             data['username'] = user;
             if(data.type === 'Expenditure'){
                 data['color'] = "#9667ab"

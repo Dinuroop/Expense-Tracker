@@ -9,7 +9,6 @@ import { useNavigate } from 'react-router-dom'
 export default function Analysis() {
   const navigate = useNavigate();
   useEffect(() => {
-  console.log("25")
   if(!localStorage.getItem('appUser')) {
     navigate("/")
   }

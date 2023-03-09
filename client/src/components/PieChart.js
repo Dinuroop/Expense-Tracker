@@ -9,7 +9,6 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 export default function PieChart() {
     const{data, isFetching, isSuccess, isError} = api.useGetLabelsQuery()
-    console.log(data)
     let pieData;
     
     if(isFetching){
