@@ -40,16 +40,13 @@ export const config = {
 export default function Investment() {
     const{data, isFetching, isSuccess, isError} = api.useGetLabelsQuery()
     if(!data) return null
-    console.log(investment_data(data))
 
     let investData;
     
     if(isFetching){
         investData = <div class="dark:text-white">Fetching</div>;
     }else if(isSuccess && investment_data(data)){
-        console.log("Success")
         investData = <PolarArea data={investment_data(data)}/>
-        console.log(investData)
     }else if(isError){
         investData = <div class="dark:text-white">Error</div>
     }

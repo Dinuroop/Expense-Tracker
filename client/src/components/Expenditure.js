@@ -58,16 +58,13 @@ export default function Expenditure() {
 
     const{data, isFetching, isSuccess, isError} = api.useGetLabelsQuery()
     if(!data) return null
-    console.log(expenditure_data(data))
 
     let expenditureData;
     
     if(isFetching){
         expenditureData = <div class="dark:text-white">Fetching</div>;
     }else if(isSuccess && expenditure_data(data)){
-        console.log("Success")
         expenditureData = <Line data={expenditure_data(data)}/>
-        console.log(expenditureData)
     }else if(isError){
         expenditureData = <div class="dark:text-white">Error</div>
     }

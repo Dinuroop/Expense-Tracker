@@ -26,7 +26,6 @@ export function chart_data(transaction,custom){
 
     let bg = _.map(transaction, a=>a.color)
     bg = _.uniq(bg)
-    console.log(bg)
     let dataValue = getSum(transaction)
 
     const config={
@@ -51,7 +50,6 @@ export function chart_data(transaction,custom){
 
 export function Piechart_data(transaction,custom){
   let piedata = _(transaction).groupBy("type").value();
-  console.log(piedata);
   let exp = piedata.Expenditure;
   let sav = piedata.Savings;
   let inv = piedata.Investment;
@@ -61,15 +59,12 @@ export function Piechart_data(transaction,custom){
   inv = inv.filter(item=>item.username===user)
   let bg = _.map(transaction, a=>a.color)
   bg = _.uniq(bg)
-  console.log(bg)
   let dataValue = getSum(transaction)
   let expValue = getSum(exp);
   let savValue = getSum(sav);
   let invValue = getSum(inv);
 
   var l = [invValue[0],savValue[0],expValue[0] ];
-  console.log(dataValue);
-  console.log(l);
 
   const config={
       data :{

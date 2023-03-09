@@ -14,7 +14,6 @@ export default function Graph() {
     
     const navigate = useNavigate();
     const{data, isFetching, isSuccess, isError} = api.useGetLabelsQuery()
-    console.log(data)
     let user;
     let values;
     if(!localStorage.getItem('appUser')) {
@@ -24,7 +23,6 @@ export default function Graph() {
     }
     if(data){
         values = data.filter(item => item.username === user );
-        console.log(values)
     }
     
     
