@@ -26,7 +26,6 @@ export default function Form() {
                 data['color'] = '#4b77bf'
             }
             await addTransaction(data).unwrap();
-            console.log(data)
             resetField('name');
             resetField('amount');
         }
