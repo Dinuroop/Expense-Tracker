@@ -33,7 +33,7 @@ const Login = () => {
         event.preventDefault();
         if(handleValidation()){
             const{password,username}=values;
-            const {data} = await axios.post('http://localhost:8080/api/user',{ 
+            const {data} = await axios.post('https://expensetracker-md31.onrender.com/api/user',{ 
               username,
               password,
             });
